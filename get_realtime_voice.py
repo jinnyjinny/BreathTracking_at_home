@@ -11,7 +11,9 @@ import pandas as pd
 
 CHUNK = 1024 
 FORMAT = pyaudio.paInt16 
-CHANNELS = 2 # <--------------------여기 채널인수값
+CHANNELS = 2 
+#아래의 코드를 따로 실행하고, 본인의 채널 맞춰서 밑에 채널 인수값 바꿔주세요
+#p.get_device_info_by_index(1)["name"]
 RATE = 44100 
 RECORD_SECONDS = 5 
 OUTPUT_FILENAME = "realtime_sound"
@@ -70,7 +72,7 @@ plt.show()
 #들숨+날숨세트개수
 
 data_scale = data["value"]/data["value"].max() #데이터값 % 데이터의 최대값 = 정규화
-data_scale_mean = data_scale - data_scale.mean().sum() # 정규화값 - 평균의 합 = ?
+data_scale_mean = data_scale - data_scale.mean().sum() 
 data_scale_mean = data_scale_mean/abs(data_scale_mean) 
 count=0
 for i in range(len(data_scale_mean)-2):
